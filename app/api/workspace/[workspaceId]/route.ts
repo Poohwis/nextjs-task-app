@@ -1,13 +1,12 @@
 import { auth } from "@/auth";
 import { db } from "@/lib/db";
-import { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 interface IParams {
   workspaceId: string;
 }
 export async function GET(
-  req: NextApiRequest,
+  req: NextRequest,
   { params }: { params: IParams }
 ) {
   const session = await auth();
