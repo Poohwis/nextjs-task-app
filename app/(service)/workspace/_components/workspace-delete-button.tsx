@@ -46,7 +46,7 @@ export default function WorkspaceDeleteButton({workspaceId} : WorkspaceDeleteBut
           </PopoverClose>
         </div>
         <div className="text-xs text-white/80 mt-2">
-          All data contain in this workspace will be deleted, you won't be able
+          All data contain in this workspace will be deleted, you won&apos;t be able
           to re-open the workspace.
         </div>
             <Button
