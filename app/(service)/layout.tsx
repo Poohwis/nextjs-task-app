@@ -9,7 +9,6 @@ export default function DemoLayout({
 }) {
   return (
     <main>
-      {/* <div className="bg-gradient-to-b from-slate-950 via-black to-black w-full flex justify-center "> */}
       <div className="bg-[#90909c]  w-full flex justify-center ">
         <div className="flex w-full">
           {/* <Sidebar /> */}

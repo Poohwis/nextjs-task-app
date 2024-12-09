@@ -21,7 +21,7 @@ export default async function WorkspacesPage() {
   const remainWorkspace = WORKSPACE_LIMIT - (await db.workspace.count());
 
   return (
-    <div className="flex justify-center w-full h-full">
+    <div className="sm:ml-0 ml-4 flex justify-center w-full h-full">
       <div className="sm:pt-[10vh] pt-4 h-full max-w-screen-2xl w-full px-4">
         <h1 className="text-white text-base font-semibold">Workspaces</h1>
         <WorkspaceSortButton />

@@ -26,7 +26,7 @@ export default async function WorkspacePage({ params }: WorkspaceParams) {
     return <div className="pt-20 text-white">No workspace</div>;
   }
   return (
-    <div className="overflow-hidden flex flex-col w-full h-screen">
+    <div className="sm:ml-0 ml-4 overflow-hidden flex flex-col w-full h-screen">
       <WorkspaceTitleBar data={workspace} />
       {workspace.isClosed && (
         <WorkspaceClosedBanner workspaceId={workspace.id} />

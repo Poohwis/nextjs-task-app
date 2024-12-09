@@ -26,9 +26,15 @@ export default function LandingPage() {
         <div className="flex flex-row justify-center space-x-4 mt-6">
           {userId ? (
             <Link href={"/workspace"}>
-              <Button variant={"outline"} className="h-8 font-semibold">
+              {/* <Button variant={"outline"} className="h-8 font-semibold">
                 Get started
-              </Button>
+              </Button> */}
+              <div className="relative h-8 w-28 bg-white/50 rounded-lg transition-all group flex items-center justify-center overflow-hidden">
+                <div className="text-sm font-semibold group-hover:text-white z-10 transition-colors duration-500">
+                  Get started
+                </div>
+                <div className="absolute z-0 h-24 w-32 rounded-t-full bg-black/80 group-hover:-translate-y-8 transition-all translate-y-16 duration-500"/>
+              </div>
             </Link>
           ) : (
             <DialogLogin>

@@ -20,24 +20,23 @@ export default function SidebarComponent({
     <>
       <div
         className={cn(
-          "z-10 hidden sm:block h-screen bg-darkgray transition-all delay-250 duration-250 hover:brightness-125 hover:cursor-pointer",
+          "fixed sm:relative  z-20 sm:block h-full bg-darkgray transition-all delay-250 duration-250 hover:brightness-125 hover:cursor-pointer",
           isOpen ? "w-0 -translate-x-4" : "w-4 translate-x-0"
         )}
         onClick={() => setIsOpen(!isOpen)}
       >
+        <div
+          className={cn(
+            "transition-all delay-100 duration-300 mt-10 flex items-center justify-center  w-6 h-6 rounded-full bg-darkgray border-white/20 border hover:cursor-pointer",
+            isOpen ? "-translate-x-4 " : "translate-x-2"
+          )}
+        >
+          <ChevronRight color="white" size={14} />
+        </div>
+      </div>
       <div
         className={cn(
-          "transition-all delay-100 duration-300 mt-10  flex items-center justify-center  w-6 h-6 rounded-full bg-darkgray border-white/20 border hover:cursor-pointer",
-          isOpen ? "-translate-x-4 " : "translate-x-2"
-        )}
-      >
-            <ChevronRight color="white" size={14} />
-      </div>
-
-      </div>
-      <div
-        className={cn(
-          "transition-all duration-250 w-64 bg-black/90 hidden sm:block border-r-[1px] h-screen border-darkgray px-2",
+          "z-20 sm:relative fixed transition-all duration-250 w-64 bg-black sm:bg-black/90 sm:block border-r-[1px] h-screen border-darkgray px-2",
           isOpen ? "shrink-0" : "w-0 -translate-x-64 px-0 border-none "
         )}
       >
