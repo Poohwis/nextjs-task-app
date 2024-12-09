@@ -10,7 +10,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const { auth } = NextAuth(authConfig);
 
-export default auth((req) => {
+export default auth(async (req, ctx) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
 
@@ -19,41 +19,22 @@ export default auth((req) => {
   const isAuthRoute = authRouths.includes(nextUrl.pathname);
 
   if (isApiAuthRoute) {
-    return null;
+    return NextResponse.next(); // Let API routes proceed
   }
 
   if (isAuthRoute) {
     if (isLoggedIn) {
-      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+      return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl)); // Redirect if logged in
     }
-    return null;
+    return NextResponse.next(); // Allow login route to proceed if not logged in
   }
-  //   TODO : add function to login page
+
   if (!isLoggedIn && !isPublicRoute) {
-    return Response.redirect(new URL("/", nextUrl));
+    return NextResponse.redirect(new URL("/", nextUrl)); // Redirect to login if not logged in
   }
+
+  return NextResponse.next(); // Allow all other requests to proceed
 });
-
-// export function middleware(req : NextRequest){
-//   const headers = new Headers(req.headers)
-//   headers.set("x-current-path", req.nextUrl.pathname)
-//   return NextResponse.next({headers})
-// }
-// export function middleware(request: Request) {
-//   const url = new URL(request.url);
-//   const origin = url.origin;
-//   const pathname = url.pathname;
-//   const requestHeaders = new Headers(request.headers);
-//   requestHeaders.set("x-url", request.url);
-//   requestHeaders.set("x-origin", origin);
-//   requestHeaders.set("x-pathname", pathname);
-
-//   return NextResponse.next({
-//     request: {
-//       headers: requestHeaders,
-//     },
-//   });
-// }
 
 export const config = {
   matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
