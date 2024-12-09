@@ -1,9 +1,8 @@
 import { auth } from "@/auth";
 import { db } from "@/lib/db";
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest ,NextResponse } from "next/server";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: NextRequest) {
   const session = await auth();
   const userId = session?.user?.id;
 
