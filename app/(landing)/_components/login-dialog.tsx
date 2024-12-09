@@ -45,7 +45,7 @@ export function LoginDialogContent({ toggle }: LoginDialogContentProps) {
       <Loginform />
       <Social />
       <div className="mt-2 text-xs text-center text-white flex flex-row gap-x-1 justify-center">
-        Don't have an account?
+        Don&apos;t have an account?
         <div onClick={toggle} className="hover:underline hover:cursor-pointer">
           Register
         </div>

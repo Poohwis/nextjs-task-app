@@ -20,7 +20,7 @@ interface CardAddAreaProps {
   scrollToBottom: () => void;
   handleToggleAddingCard: () => void;
 }
-export default function fCardAddArea({
+export default function CardAddArea({
   scrollToBottom,
   workspaceId,
   listId,
