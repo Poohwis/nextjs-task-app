@@ -121,7 +121,6 @@ export default function CardDialogWrapper({
       <DialogContent
         onOpenAutoFocus={(e) => e.preventDefault()}
         aria-describedby={undefined}
-        className="top-[10%]"
       >
         <DialogTitle className="hidden">{data.title}</DialogTitle>
         <div className="flex flex-col">

@@ -18,7 +18,7 @@ export default async function WorkspacesPage() {
   }
 
   const workspaces = (await getWorkspacesById(userId, "createAt")) || [];
-  const remainWorkspace = WORKSPACE_LIMIT - (await db.workspace.count());
+  const remainWorkspace = WORKSPACE_LIMIT - (await db.workspace.count({where: {userId}}));
 
   return (
     <div className="sm:ml-0 ml-4 flex justify-center w-full h-full">
